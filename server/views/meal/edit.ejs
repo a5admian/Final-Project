@@ -16,9 +16,18 @@
             id="breafTextField"
             placeholder="Edit your breakfast"
             name="breakf"
-            value="<%= meal.day%>"
+            value="<%= meal.breakf%>"
             required>
-            
+        </div>
+
+        <div class="form-group">
+            <label for=" c1TextField">Calories</label>
+            <input type="text" class="form-control"
+            id="c1TextField"
+            placeholder="Calories for Breakfast"
+            name="c1"
+            value="<%= meal.c1%>"
+            required>
         </div>
 
         <div class="form-group">
@@ -27,7 +36,17 @@
             id="lunchTextField"
             placeholder="Edit your lunch"
             name="lunch" 
-            value="<%= meal.exercise%>"
+            value="<%= meal.lunch%>"
+            required>
+        </div>
+
+        <div class="form-group">
+            <label for=" c2TextField">Calories</label>
+            <input type="text" class="form-control"
+            id="c2TextField"
+            placeholder="Calories for Lunch"
+            name="c2"
+            value="<%= meal.c2%>"
             required>
         </div>
 
@@ -37,7 +56,17 @@
             id="dinnerTextField"
             placeholder="Edit your dinner"
             name="dinner" 
-            value="<%= meal.from%>"
+            value="<%= meal.dinner%>"
+            required>
+        </div>
+
+        <div class="form-group">
+            <label for=" c3TextField">Calories</label>
+            <input type="text" class="form-control"
+            id="c3TextField"
+            placeholder="Calories for Dinner"
+            name="c3"
+            value="<%= meal.c3%>"
             required>
         </div>
 
