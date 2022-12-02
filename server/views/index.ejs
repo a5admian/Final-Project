@@ -4,16 +4,37 @@
 <div class="jumbotron jumbotron-fluid">
   <h1 class="display-4"><%= title %></h1>
 </div>
-<div class="wrapper">
-  <p> This website allows for CRUD operation on a meal tracker.</p>
-</div>
-<div class="arnold">
-<img src="/images/Arnold.jpg" alt="Arnold Pic" style="width:128px;height:128px;">
-</div>
 
-<div class="proteinpowder">
-<img src="/images/Proteinpowder.jpg" alt="Proteinpowder Pic" style="width:128px;height:128px;">
-</div>
+<head>
+<style>
+body {
+  background-image: url('/images/food.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+h2 {
+  background-color: lightgray;
+  text-align: center;  
+
+}
+p {
+  background-color: lightgray;
+  text-align: center;
+}
+form {
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+  <h2>Track your Meals!</h2>
+  <p>Set the background-size property to "cover" and the background image will cover the entire element, in this case the body element.</p>
+  <form action="/meal/">
+    <button class="btn btn-dark">Track Your Meals</button>
+  </form>
+</body>
 
 <%- include Partials/footer.ejs %>
 <%- include Partials/bottom_nav.ejs %>
