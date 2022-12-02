@@ -30,8 +30,11 @@ module.exports.displayAddPage = (req,res,next)=>{
 module.exports.processAddPage = (req,res,next)=>{
     let newInfo = Meal ({
         "breakf":req.body.breakf,
+        "c1":req.body.c1,
         "lunch":req.body.lunch,
+        "c2":req.body.c2,
         "dinner":req.body.dinner,
+        "c3":req.body.c3,
     });
     Meal.create(newInfo,(err,Meal) => {
         if(err)
@@ -68,8 +71,11 @@ module.exports.processsEditPage = (req,res,next) => {
     let updateMeal = Meal({
         "_id":id,
         "breakf":req.body.breakf,
+        "c1":req.body.c1,
         "lunch":req.body.lunch,
+        "c2":req.body.c2,
         "dinner":req.body.dinner,
+        "c3":req.body.c3
     });
     Meal.updateOne({_id:id},updateMeal,(err)=> {
         if(err)
