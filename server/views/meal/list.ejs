@@ -3,7 +3,7 @@
 
 
 <div class="jumbotron jumbotron-fluid">
-  <h1 class="display-4">Welcome to the <%= title %></h1>
+  <h1 class="display-4"><b>Welcome to the <%= title %></b></h1>
 </div>
 <style>
 body {
@@ -13,48 +13,68 @@ body {
   background-size: cover;
 }
 </style>
-    <div class = "wrapper">
+    <div class = "container">
         <div class = "row">
-        <div class = "col-mid-offset-10 col-md-11">
-        <a href = "/meal/add" class="btn btn-primary" role="button">
-            <i class="fas fa-plus-circle"></i> Add your Meals!
-        </a>
+        <div class = "col-mid-offset-3 col-md-9">
+        <% if(typeof displayName=='string' && displayName) { %>
+            <a href = "/meal/add" class="btn btn-primary" role="button">
+            <i class="fas fa-plus-circle"></i> Add your Meals!</a>
         <br>
+        <% } %>
         <br>
-            <!---Table displaying the health list--->
+            <!---Table displaying the meal list--->
         <table class = "table table-bordered table-striped table-hover" style="background-color:#D3D3D3">
         <tr class="d-flex">
-            <th class = "text-center col-1">Breakfast</th>
+        <% if(typeof displayName=='string' && displayName) { %>
+            <th class = "text-center col-3">Breakfast</th>
             <th class = "text-center col-1">Calories</th>
-            <th class = "text-center col-1">Lunch</th>
+            <th class = "text-center col-3">Lunch</th>
             <th class = "text-center col-1">Calories</th>
-            <th class = "text-center col-1">Dinner</th>
+            <th class = "text-center col-3">Dinner</th>
             <th class = "text-center col-1">Calories</th>
             <th class = "text-center col-1"></th>
             <th class = "text-center col-1"></th>
+        <% } else { %>
+            <th class = "text-center col-3">Breakfast</th>
+            <th class = "text-center col-1">Calories</th>
+            <th class = "text-center col-3">Lunch</th>
+            <th class = "text-center col-1">Calories</th>
+            <th class = "text-center col-3">Dinner</th>
+            <th class = "text-center col-1">Calories</th>
+        <% } %>
         </tr>
         
         <% for(let count=0; count<Meallist.length; count++) { %>
-        <tr class ="d-flex">
-        <td class = "text-center col-1"><%= Meallist[count].breakf %></td>
-        <td class = "text-center col-1"><%= Meallist[count].c1 %></td>
-        <td class = "text-center col-1"><%= Meallist[count].lunch %></td>
-        <td class = "text-center col-1"><%= Meallist[count].c2 %></td>
-        <td class = "text-center col-1"><%= Meallist[count].dinner %></td>
-        <td class = "text-center col-1"><%= Meallist[count].c3 %></td>
+            <tr class ="d-flex">
+            <% if(typeof displayName=='string' && displayName) { %>
+                <td class = "text-center col-3"><%= Meallist[count].breakf %></td>
+                <td class = "text-center col-1"><%= Meallist[count].c1 %></td>
+                <td class = "text-center col-3"><%= Meallist[count].lunch %></td>
+                <td class = "text-center col-1"><%= Meallist[count].c2 %></td>
+                <td class = "text-center col-3"><%= Meallist[count].dinner %></td>
+                <td class = "text-center col-1"><%= Meallist[count].c3 %></td>
 
-        <td class = "text-center col-1">
-            <a href="/meal/edit/<%= Meallist[count]._id %>"
-            class="btn btn-primary">
-            <i class="fas fa-pencil-alt"></i> Edit </a>
-        </td>
-        <td class = "text-center col-1">
-            <a href="/meal/delete/<%= Meallist[count]._id %>"
-            class="btn btn-danger">
-            <i class="fas fa-trash-alt"></i> Delete </a>
-        </td>
-        </tr>
+            <td class = "text-center col-1">
+                <a href="/meal/edit/<%= Meallist[count]._id %>"
+                class="btn btn-primary">
+                <i class="fas fa-pencil-alt"></i> Edit </a>
+            </td>
+            <td class = "text-center col-1">
+                <a href="/meal/delete/<%= Meallist[count]._id %>"
+                class="btn btn-danger">
+                <i class="fas fa-trash-alt"></i> Delete </a>
+            </td>
+        
+        <% } else { %>
+            <td class = "text-center col-3"><%= Meallist[count].breakf %></td>
+            <td class = "text-center col-1"><%= Meallist[count].c1 %></td>
+            <td class = "text-center col-3"><%= Meallist[count].lunch %></td>
+            <td class = "text-center col-1"><%= Meallist[count].c2 %></td>
+            <td class = "text-center col-3"><%= Meallist[count].dinner %></td>
+            <td class = "text-center col-1"><%= Meallist[count].c3 %></td>
         <% } %> 
+        </tr>
+    <% } %> 
         </table>
         </div>
         </div>
@@ -62,6 +82,7 @@ body {
 
 <%- include ../Partials/footer.ejs %>
 <%- include ../Partials/bottom_nav.ejs %>
+
 
 
 
