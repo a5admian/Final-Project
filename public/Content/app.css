@@ -1,7 +1,6 @@
 .navbar-custom 
 {
-    background-color:rgb(165, 158, 158) ;
-}
+    background: linear-gradient(270deg, rgba(175,120,74,1) 0%, rgba(237,227,149,1) 175%);}
 
 .jumbotron
 {
@@ -18,24 +17,12 @@
     top:100%;
 }
 
-.container
-{
-    background: rgb(2,0,36);
-    background: gray;
-    width: 1900px;
-    height: 1080px;
-}
-
-.center
-{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-}
-
 .btn-btn-primary
 {
     background-color: #4CAF50;
     border-radius: 12px;
 }
+
+
+
+
