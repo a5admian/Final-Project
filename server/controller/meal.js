@@ -4,7 +4,7 @@ let mongoose = require('mongoose');
 
 let Meal = require('../models/meal');
 
-/* displaying the health list*/
+/* displaying the meal list*/
 module.exports.displayMealList = (req,res,next)=>{
     Meal.find((err, meallist)=>{
         if(err)
@@ -15,7 +15,8 @@ module.exports.displayMealList = (req,res,next)=>{
         {
            res.render('meal/list', {
             title:'Meal Tracker',
-            Meallist: meallist
+            Meallist: meallist,
+            displayName: req.user ? req.user.displayName:''
            })
         }
     });
@@ -26,7 +27,7 @@ module.exports.displayAddPage = (req,res,next)=>{
     res.render('meal/add',{title: 'Add your Meals!'})
 }
 
-/* process for adding new info into the health list*/
+/* process for adding new info into the meal list*/
 module.exports.processAddPage = (req,res,next)=>{
     let newInfo = Meal ({
         "breakf":req.body.breakf,
@@ -60,12 +61,14 @@ module.exports.displayEditPage = (req,res,next) => {
         }
         else
         {
-            res.render('meal/edit',{title: 'Edit your Meals!', meal:mealToEdit})
+            res.render('meal/edit',{title: 'Edit your Meals!', 
+            meal:mealToEdit,
+            displayName: req.user ? req.user.displayName:'' })
         }
     });
 }
 
-/* process for editing info from the health list*/
+/* process for editing info from the meal list*/
 module.exports.processsEditPage = (req,res,next) => {
     let id = req.params.id;
     let updateMeal = Meal({
@@ -105,3 +108,5 @@ module.exports.performDeleteOperation = (req,res,next) => {
         }
     });
 }
+
+
