@@ -2,7 +2,7 @@
 <%- include Partials/main_nav.ejs %>
 
 <div class="jumbotron jumbotron-fluid">
-  <h1 class="display-4"><%= title %></h1>
+  <h1 class="display-4"><b><%= title %></b></h1>
 </div>
 
 <head>
@@ -16,7 +16,6 @@ body {
 h2 {
   background-color: lightgray;
   text-align: center;  
-
 }
 p {
   background-color: lightgray;
@@ -31,12 +30,13 @@ form {
 <body>
   <h2>Track your Meals!</h2>
   <p>Use the Meal Tracker to track your Breakfast, Lunch, and Dinner. You can also add the colories along with your meals.</p>
-  <form action="/meal/">
+  <form action="/meal">
     <button class="btn btn-dark">Track Your Meals</button>
   </form>
 </body>
 
 <%- include Partials/footer.ejs %>
 <%- include Partials/bottom_nav.ejs %>
+
 
 
