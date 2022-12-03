@@ -1,4 +1,5 @@
 module.exports = 
 {
-    "URI": "mongodb+srv://asadmian:DHDYHMfHyJIrYV0r@mongodbserver.az4jw32.mongodb.net/MealTracker"
+    "URI": "mongodb+srv://asadmian:DHDYHMfHyJIrYV0r@mongodbserver.az4jw32.mongodb.net/MealTracker",
+    "secret":"SomeSecret"
 }
