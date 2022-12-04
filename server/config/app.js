@@ -98,5 +98,4 @@ app.use(function(err, req, res, next) {
 });
 
 
-passport.use(Strategy);
 module.exports = app;
