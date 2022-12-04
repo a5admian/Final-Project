@@ -6,9 +6,6 @@ let logger = require('morgan');
 let session = require('express-session');
 let passport = require('passport');
 
-let passportJWT = require('passport-jwt');
-let JWTStrategy = passportJWT.Strategy;
-let ExtractJWT = passportJWT.ExtractJwt;
 
 
 let passportLocal = require('passport-local');
@@ -74,9 +71,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
-let jwtoptions = {};
-jwtoptions.jwtFromRequest = ExtractJWT.fromAuthHeaderAsBearerToken();
-jwtoptions.secretOrKey = DB.secret;
 
 
 app.use('/', indexRouter); // localhost:3000
@@ -102,12 +96,7 @@ app.use(function(err, req, res, next) {
   }
   );
 });
-let Strategy = new JWTStrategy(jwtoptions,(jwt_payload,done)=>{
-  User.findById(jwt_payload.id, (err, user) => {
-   if (err) return done(err, false);
-   return done(null, user);
-  });
-});
+
 
 passport.use(Strategy);
 module.exports = app;
