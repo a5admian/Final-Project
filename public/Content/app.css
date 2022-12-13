@@ -1,11 +1,12 @@
 .navbar-custom 
 {
-    background: linear-gradient(270deg, rgba(175,120,74,1) 0%, rgba(237,227,149,1) 175%);}
+    background: linear-gradient(180deg, rgba(175,120,74,1) 0%, rgba(237,227,149,1) 175%);
+}
 
 .jumbotron
 {
     text-align: center;
-    background-color: rgb(175, 120, 74);
+    background: linear-gradient(360deg, rgba(175,120,74,1) 0%, rgba(237,227,149,1) 175%);
 }
 
 .footer
